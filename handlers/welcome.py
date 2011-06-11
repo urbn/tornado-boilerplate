@@ -3,7 +3,6 @@ from handlers.base import BaseHandler
 import logging
 logger = logging.getLogger('boilerplate.' + __name__)
 
-
-class FooHandler(BaseHandler):
+class WelcomeHandler(BaseHandler):
     def get(self):
-        self.render("base.html")
+        self.render("welcome.html")

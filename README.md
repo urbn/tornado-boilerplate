@@ -41,8 +41,7 @@ were the primary inspiration for this layout.
             production.txt
         templates/
         vendor/
-        environment.py
-        fabfile.py
+        environment.py  
         app.py
         settings.py
 
@@ -87,58 +86,12 @@ separate.
 ### requirements
 
 pip requirements files, optionally one for each app environment. The
-`common.txt` is installed in every case.
-
-Our Fabfile (see below) installs the project's dependencies from these files.
-It's an attempt to standardize the location for dependencies like Rails'
-`Gemfile`. We also specifically avoid listing the dependencies in the README of
-the project, since a list there isn't checked programmatically or ever actually
-installed, so it tends to quickly become out of date.
+`common.txt` is installed in every case.             
 
 ### templates
 
 Project-wide templates (i.e. those not belonging to any specific app in the
-`handlers/` folder). The boilerplate includes a `base.html` template that defines
-these blocks:
-
-#### <head>
-
-`title` - Text for the browser title bar. You can set a default here and
-append/prepend to it in sub-templates using `{{ super }}`.
-
-`site_css` - Primary CSS files for the site. By default, includes
-`media/css/reset.css` and `media/css/base.css`. 
-
-`css` - Optional page-specific CSS - empty by default. Use this block if a page
-needs an extra CSS file or two, but doesn't want to wipe out the files already
-linked via the `site_css` block.
-
-`extra_head` - Any extra content for between the `<head>` tags.
-
-#### <body>
-
-`header` -Top of the body, inside a `div` with the ID `header`.
-
-`content` - After the `header`, inside a `div` with the ID `content`.
-
-`footer` - After `content`, inside a `div` with the ID `footer`.
-
-`site_js` - After all body content, includes site-wide Javascript files. By
-default, includes `media/js/application.js` and jQuery. In deployed
-environments, links to a copy of jQuery on Google's CDN. If running in solo
-development mode, links to a local copy of jQuery from the `media/` directory -
-because the best way to fight snakes on a plane is with jQuery on a plane.
-
-`js` - Just like the `css` block, use the `js` block for page-specific
-Javascript files when you don't want to wipe out the site-wide defaults in
-`site_js`.
-
-#### TODO
-
-This needs to be tested with Tornado's templating language. A quick
-look at the documentation indicates that this basic template is compatible, but
-none of our Tornado applications are using templates at the moment, so it hasn't
-been tested.
+`handlers/` folder). The boilerplate includes a `welcome.html` template.
 
 ### vendor
 
@@ -164,14 +117,7 @@ compilation (e.g. C/C++ extensions) this method will not work.
 Modifies the `PYTHONPATH` to allow importing from the `apps/`, `lib/` and
 `vendor/` directories. This module is imported at the top of `settings.py` to
 make sure it runs for both local development (using Django's built-in server)
-and in production (run through mod-wsgi, gunicorn, etc.).
-
-#### fabfile.py
-
-We use [Fabric](http://fabfile.org/) to deploy to remote servers in development,
-staging and production environments. The boilerplate Fabfile is quite thin, as
-most of the commands are imported from [buedafab](https://github.com/bueda/ops),
-a collection of our Fabric utilities.
+and in production (run through mod-wsgi, gunicorn, etc.).   
 
 #### app.py
 
@@ -197,4 +143,5 @@ If you have improvements or bug fixes:
 ## Authors
 
 * [Bueda Inc.](http://www.bueda.com)
-* Christopher Peplin, peplin@bueda.com, @[peplin](http://twitter.com/peplin)
+* Christopher Peplin, peplin@bueda.com, @[peplin](http://twitter.com/peplin) 
+* Modifications by Stuart Marsh, http://www.beardygeek.com
