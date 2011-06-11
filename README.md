@@ -7,7 +7,15 @@ tornado-boilerplate is an attempt to set up an convention for
 [Tornado](http://www.tornadoweb.org/) app layouts, to assist in writing
 utilities to deploy such applications. A bit of convention can go a long way.
 
-This app layout is the one assumed by [buedafab](https://github.com/bueda/ops).
+This app layout is the one assumed by [buedafab](https://github.com/bueda/ops). 
+
+## Instructions
+
+* Clone this repository
+* cd into the repo directory
+* At the command line type:
+<pre><code>python ./app.py</code></pre>
+* Visit http://localhost:8888 in your browser
 
 ### Related Projects
 
