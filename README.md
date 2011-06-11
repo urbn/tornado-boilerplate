@@ -25,7 +25,7 @@ were the primary inspiration for this layout.
 
     tornado-boilerplate/
         handlers/
-            foo.py
+            welcome.py
             base.py
         lib/
         logconfig/
