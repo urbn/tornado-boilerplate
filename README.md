@@ -34,21 +34,10 @@ were the primary inspiration for this layout.
     tornado-boilerplate/
         handlers/
             welcome.py
-            base.py
-        lib/
+            base.py     
         logconfig/
-        media/
-            css/
-                vendor/
-            js/
-                vendor/
-            images/
-        requirements/
-            common.txt
-            dev.txt
-            production.txt
-        templates/
-        vendor/
+        media/             
+        templates/  
         environment.py  
         app.py
         settings.py
@@ -58,15 +47,7 @@ were the primary inspiration for this layout.
 All of your Tornado RequestHandlers go in this directory.
 
 Everything in this directory is added to the `PYTHONPATH` when the
-`environment.py` file is imported.
-
-### lib
-
-Python packages and modules that aren't really Tornado request handlers. These
-are just regular Python classes and methods.
-
-Everything in this directory is added to the `PYTHONPATH` when the
-`environment.py` file is imported.
+`environment.py` file is imported.        
 
 ### logconfig
 
@@ -87,39 +68,13 @@ All of your loggers should be children of your app's root logger (defined in
 
 ### media
 
-A subfolder each for CSS, Javascript and images. Third-party files (e.g. the
-960.gs CSS or jQuery) go in a `vendor/` subfolder to keep your own code
-separate.
-
-### requirements
-
-pip requirements files, optionally one for each app environment. The
-`common.txt` is installed in every case.             
+Sub directories for media (css, images etc) can be placed in here.            
 
 ### templates
 
 Project-wide templates (i.e. those not belonging to any specific app in the
-`handlers/` folder). The boilerplate includes a `welcome.html` template.
-
-### vendor
-
-Python package dependencies loaded as git submodules. pip's support for git
-repositories is somewhat unreliable, and if the specific package is your own
-code it can be a bit easier to debug if it's all in one place (and not off in a
-virtualenv). 
-
-At Bueda we collect general webapp helpers and views in the separate package
-`comrade` and share it among all of our applications. It is included here as an
-example of a Python package as a git submodule (comrade itself should't be
-considered part of this boilerplate - while it might be useful, it's much less
-generic).
-
-Any directory in `vendor/` is added to the `PYTHONPATH` by `environment.py`. The
-packages are *not* installed with pip, however, so if they require any
-compilation (e.g. C/C++ extensions) this method will not work.
-
-### Files
-
+`handlers/` folder). The boilerplate includes a `welcome.html` template.  
+    
 #### environment.py
 
 Modifies the `PYTHONPATH` to allow importing from the `apps/`, `lib/` and
